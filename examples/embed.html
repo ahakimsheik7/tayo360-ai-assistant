@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tayo360 Widget — Embed Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: #1d2433;
+      background: #fafbfd;
+      padding: 60px 24px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 28px; margin: 0 0 8px; color: #0a2540; }
+    p  { color: #5a6478; line-height: 1.6; }
+    pre {
+      background: #0a2540; color: #cfe7f5;
+      padding: 16px 20px; border-radius: 8px;
+      font-size: 13px; line-height: 1.6; overflow-x: auto;
+    }
+    code { font-family: 'Menlo', 'Consolas', monospace; }
+    .note {
+      background: #fff; border: 1px solid #e6ebf2; border-left: 3px solid #1a73a8;
+      padding: 14px 16px; border-radius: 6px; margin: 20px 0;
+      font-size: 14px; color: #2a3a55;
+    }
+    .row { margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1>Tayo360 Widget — Embed Example</h1>
+    <p>
+      This page demonstrates the simplest possible embed. Open the floating button
+      in the bottom-right to interact with the AI assistant.
+    </p>
+
+    <div class="note">
+      <strong>How it works:</strong> the widget self-injects all required HTML and
+      CSS into the page at load time. No frameworks, no build step, no HTML edits
+      to your site beyond a single &lt;script&gt; tag.
+    </div>
+
+    <div class="row">
+      <h2>Minimal embed</h2>
+      <pre><code>&lt;script src="tayo360-widget.js" defer&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="row">
+      <h2>With configuration</h2>
+      <pre><code>&lt;script&gt;
+  window.Tayo360Config = {
+    webhookUrl: 'https://your-n8n.example.com/webhook/tayo360-lead',
+    brandName: 'Tayo360',
+    botName: 'Tayo360 Assistant',
+    primaryColor: '#0a2540',
+    accentColor: '#1a73a8',
+    autoOpenAfterMs: 0  // set e.g. 8000 to auto-open after 8 seconds
+  };
+&lt;/script&gt;
+&lt;script src="tayo360-widget.js" defer&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="row">
+      <h2>Trigger from any element on the page</h2>
+      <p>Add <code>data-tayo360-open</code> to any element to open the widget on click:</p>
+      <pre><code>&lt;button data-tayo360-open&gt;Talk to our AI assistant&lt;/button&gt;</code></pre>
+    </div>
+
+    <div class="row">
+      <h2>Or call the JavaScript API</h2>
+      <pre><code>Tayo360.open();
+Tayo360.close();
+Tayo360.toggle();</code></pre>
+    </div>
+  </div>
+
+  <!-- The actual widget embed (this is what the user copies into their site) -->
+  <script>
+    window.Tayo360Config = {
+      brandName: 'Tayo360',
+      botName: 'Tayo360 Assistant',
+      primaryColor: '#0a2540',
+      accentColor: '#1a73a8'
+      // webhookUrl: 'https://your-n8n.example.com/webhook/tayo360-lead'
+    };
+  </script>
+  <script src="../widget/tayo360-widget.js" defer></script>
+
+</body>
+</html>
